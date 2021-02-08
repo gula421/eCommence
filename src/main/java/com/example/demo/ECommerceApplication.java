@@ -10,14 +10,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableJpaRepositories("com.example.demo.model.persistence.repositories")
 @EntityScan("com.example.demo.model.persistence")
 @SpringBootApplication
-public class SareetaApplication {
+public class ECommerceApplication {
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(SareetaApplication.class, args);
+		SpringApplication.run(ECommerceApplication.class, args);
 	}
 
 }
