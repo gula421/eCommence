@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controllers;
 
 import com.example.demo.TestUtils;
 import com.example.demo.controllers.UserController;
@@ -6,7 +6,7 @@ import com.example.demo.model.persistence.User;
 import com.example.demo.model.persistence.repositories.CartRepository;
 import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.CreateUserRequest;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -44,7 +44,7 @@ public class UserControllerTest {
     public void createUser(){
         CreateUserRequest request = TestUtils.createOneUserRequest();
 
-        // handel request
+        // handle request
         ResponseEntity<User> response = userController.createUser(request);
 
         // verify response

@@ -1,14 +1,14 @@
 package com.example.demo;
 
-import com.example.demo.controller.CarControllerTest;
-import com.example.demo.controller.ItemControllerTest;
-import com.example.demo.controller.OrderControllerTest;
-import com.example.demo.controller.UserControllerTest;
+import com.example.demo.controllers.CartControllerTest;
+import com.example.demo.controllers.ItemControllerTest;
+import com.example.demo.controllers.OrderControllerTest;
+import com.example.demo.controllers.UserControllerTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({CarControllerTest.class,
+@Suite.SuiteClasses({CartControllerTest.class,
         ItemControllerTest.class,
         OrderControllerTest.class,
         UserControllerTest.class})
