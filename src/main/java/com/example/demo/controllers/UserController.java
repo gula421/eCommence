@@ -60,6 +60,7 @@ public class UserController {
 		Cart cart = new Cart();
 		cartRepository.save(cart);
 		user.setCart(cart);
+		cart.setUser(user);
 
 		// save user
 		userRepository.save(user);
