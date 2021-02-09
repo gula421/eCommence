@@ -44,7 +44,7 @@ public class JWTValidateFilter extends BasicAuthenticationFilter {
             // setAuthentication to SecurityContextHolder
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         } catch (TokenExpiredException e){
-            logger.error("login fail."+ e.getMessage());
+            logger.error(";fail;login;"+ e.getMessage());
         }
         //do filter
         chain.doFilter(request, response);

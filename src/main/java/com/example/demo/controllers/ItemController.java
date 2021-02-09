@@ -30,9 +30,9 @@ public class ItemController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Item> getItemById(@PathVariable Long id) {
 		if (!itemRepository.findById(id).isPresent()){
-			logger.error("getItemById fail. Item with "+id+" not found");
+			logger.error(";fail;getItemById;Item with "+id+" not found");
 		}
-		logger.info("getItemById: "+id+" successful.");
+		logger.info(";success;getItemById;Item"+id);
 		return ResponseEntity.of(itemRepository.findById(id));
 	}
 	
@@ -40,10 +40,10 @@ public class ItemController {
 	public ResponseEntity<List<Item>> getItemsByName(@PathVariable String name) {
 		List<Item> items = itemRepository.findByName(name);
 		if (items==null){
-			logger.error("getItemsByName fail. "+name+" not found");
+			logger.error(";fail;getItemsByName;Item "+name+" not found");
+		}else{
+			logger.info(";success;getItemsByName;Item "+name);
 		}
-
-		logger.info("getItemsByName: "+name+" successful");
 		return items == null || items.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(items);
 			
