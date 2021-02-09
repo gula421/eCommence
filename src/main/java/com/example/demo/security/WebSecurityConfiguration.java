@@ -43,6 +43,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers(SecurityConstants.SIGN_UP_URL).permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .addFilter(new JWTIssueFilter(authenticationManager()))
                 .addFilter(new JWTValidateFilter(authenticationManager()))

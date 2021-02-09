@@ -2,6 +2,9 @@ package com.example.demo.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.TokenExpiredException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +20,8 @@ import java.util.ArrayList;
 
 @Component
 public class JWTValidateFilter extends BasicAuthenticationFilter {
+
+    Logger logger = LoggerFactory.getLogger(JWTValidateFilter.class);
 
     public JWTValidateFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
@@ -34,11 +39,13 @@ public class JWTValidateFilter extends BasicAuthenticationFilter {
         }
 
         // verify jwt and return UsernamePasswordAuthenticationToken
-        UsernamePasswordAuthenticationToken authenticationToken = getAuthentication(token);
-
-        // setAuthentication to SecurityContextHolder
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-
+        try {
+            UsernamePasswordAuthenticationToken authenticationToken = getAuthentication(token);
+            // setAuthentication to SecurityContextHolder
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        } catch (TokenExpiredException e){
+            logger.error("login fail."+ e.getMessage());
+        }
         //do filter
         chain.doFilter(request, response);
     }
@@ -53,6 +60,7 @@ public class JWTValidateFilter extends BasicAuthenticationFilter {
             // simulate a success login
             return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
         }
+
         return null;
     }
 
