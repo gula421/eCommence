@@ -1,0 +1,46 @@
+2021-02-09 20:25:49.520  INFO 8034 --- [main] com.example.demo.ECommerceApplication    : Starting ECommerceApplication on yukult.local with PID 8034 (/Users/yukult/Documents/Go/Courses/Java/JWDN/projects/L4/eCommerce/target/classes started by yukult in /Users/yukult/Documents/Go/Courses/Java/JWDN/projects/L4/eCommerce)
+2021-02-09 20:25:49.523  INFO 8034 --- [main] com.example.demo.ECommerceApplication    : No active profile set, falling back to default profiles: default
+2021-02-09 20:25:50.236  INFO 8034 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-02-09 20:25:50.296  INFO 8034 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51ms. Found 4 repository interfaces.
+2021-02-09 20:25:50.879  INFO 8034 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$610a9cf3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-09 20:25:51.177  INFO 8034 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-02-09 20:25:51.205  INFO 8034 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-09 20:25:51.205  INFO 8034 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2021-02-09 20:25:51.335  INFO 8034 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-09 20:25:51.335  INFO 8034 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1747 ms
+2021-02-09 20:25:51.599  INFO 8034 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-09 20:25:51.771  INFO 8034 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-09 20:25:51.838  INFO 8034 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-02-09 20:25:51.931  INFO 8034 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2021-02-09 20:25:51.932  INFO 8034 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-02-09 20:25:52.133  INFO 8034 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-02-09 20:25:52.327  INFO 8034 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-02-09 20:25:53.115  INFO 8034 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-09 20:25:53.728  WARN 8034 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-09 20:25:53.797  INFO 8034 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66596c4c, org.springframework.security.web.context.SecurityContextPersistenceFilter@2314cd97, org.springframework.security.web.header.HeaderWriterFilter@31b91435, org.springframework.web.filter.CorsFilter@15ce261, org.springframework.security.web.authentication.logout.LogoutFilter@19fc0ef7, com.example.demo.security.JWTIssueFilter@54c3e686, com.example.demo.security.JWTValidateFilter@39840986, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64e89bb2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a35ae82, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@141229f6, org.springframework.security.web.session.SessionManagementFilter@2212e291, org.springframework.security.web.access.ExceptionTranslationFilter@35995029, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2626aa35]
+2021-02-09 20:25:53.927  INFO 8034 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-09 20:25:54.138  INFO 8034 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-09 20:25:54.140  INFO 8034 --- [main] com.example.demo.ECommerceApplication    : Started ECommerceApplication in 10.089 seconds (JVM running for 10.487)
+2021-02-09 20:25:59.385  INFO 8034 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-09 20:25:59.386  INFO 8034 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-09 20:25:59.398  INFO 8034 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2021-02-09 20:25:59.721  INFO 8034 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : CreateUser successful
+2021-02-09 20:27:27.820 ERROR 8034 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : CreateUser fail. Invalid password.
+2021-02-09 20:28:36.484  INFO 8034 --- [http-nio-8080-exec-8] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-02-09 20:28:36.698  INFO 8034 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : addTocart success
+2021-02-09 20:28:55.574 ERROR 8034 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : addTocart failed. Username Alex not found
+2021-02-09 20:29:10.797 ERROR 8034 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : addTocart failed. ItemId: 10 not found
+2021-02-09 20:31:14.055 ERROR 8034 --- [http-nio-8080-exec-4] c.e.demo.security.JWTValidateFilter      : login fail.The Token has expired on Tue Feb 09 20:29:45 CET 2021.
+2021-02-09 20:31:16.326 ERROR 8034 --- [http-nio-8080-exec-5] c.e.demo.security.JWTValidateFilter      : login fail.The Token has expired on Tue Feb 09 20:29:45 CET 2021.
+2021-02-09 20:31:37.776 ERROR 8034 --- [http-nio-8080-exec-6] c.e.demo.security.JWTValidateFilter      : login fail.The Token has expired on Tue Feb 09 20:29:45 CET 2021.
+2021-02-09 20:31:54.126  INFO 8034 --- [http-nio-8080-exec-8] c.e.demo.controllers.OrderController     : Order submit success for user Betty
+2021-02-09 20:32:13.232 ERROR 8034 --- [http-nio-8080-exec-9] c.e.demo.controllers.OrderController     : Order submit fail. Username Alex not found.
+2021-02-09 20:33:13.660 ERROR 8034 --- [http-nio-8080-exec-3] c.e.demo.security.JWTValidateFilter      : login fail.The Token has expired on Tue Feb 09 20:33:11 CET 2021.
+2021-02-09 20:33:37.770  INFO 8034 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : getOrdersForUser Betty successful
+2021-02-09 20:33:55.652 ERROR 8034 --- [http-nio-8080-exec-5] c.e.demo.controllers.OrderController     : getOrdersForUser fail. Username Alex not found
+2021-02-09 20:34:12.354  INFO 8034 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-09 20:34:12.359  INFO 8034 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-09 20:34:12.370  INFO 8034 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-09 20:34:12.383  INFO 8034 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
