@@ -31,8 +31,9 @@ public class ItemController {
 	public ResponseEntity<Item> getItemById(@PathVariable Long id) {
 		if (!itemRepository.findById(id).isPresent()){
 			logger.error(";fail;getItemById;Item with "+id+" not found");
+		} else {
+			logger.info(";success;getItemById;Item"+id);
 		}
-		logger.info(";success;getItemById;Item"+id);
 		return ResponseEntity.of(itemRepository.findById(id));
 	}
 	
