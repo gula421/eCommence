@@ -69,11 +69,13 @@ public class CartControllerTest {
         // mock user, item repository and modifyCartRequest
         when(userRepository.findByUsername(username)).thenReturn(user);
         when(itemRepository.findById(any())).thenReturn(Optional.of(item));
-        when(modifyCartRequest.getQuantity()).thenReturn(itemQuantity);
-        when(modifyCartRequest.getUsername()).thenReturn(username);
+        ModifyCartRequest request = new ModifyCartRequest();
+        request.setQuantity(itemQuantity);
+        request.setUsername(username);
+        request.setItemId(item.getId());
 
         // verify cartController
-        ResponseEntity<Cart> response = cartController.addTocart(modifyCartRequest);
+        ResponseEntity<Cart> response = cartController.addTocart(request);
         assertTrue(response.getStatusCode().equals(HttpStatus.OK));
         Cart responseBody = response.getBody();
         assertNotNull(responseBody);
@@ -81,8 +83,6 @@ public class CartControllerTest {
         assertEquals(expectedQuantity,responseBody.getItems().size());
         assertEquals(expectedTotal , responseBody.getTotal());
         assertEquals(user, responseBody.getUser());
-
-
     }
 
     @Test
@@ -112,10 +112,13 @@ public class CartControllerTest {
         // mock
         when(userRepository.findByUsername(any())).thenReturn(user);
         when(itemRepository.findById(any())).thenReturn(Optional.of(itemToRemove));
-        when(modifyCartRequest.getQuantity()).thenReturn(1);
+        ModifyCartRequest request = new ModifyCartRequest();
+        request.setQuantity(1);
+        request.setUsername(username);
+        request.setItemId(itemToRemove.getId());
 
         // verify cartController
-        ResponseEntity<Cart> response = cartController.removeFromcart(modifyCartRequest);
+        ResponseEntity<Cart> response = cartController.removeFromcart(request);
         Cart responseBody = response.getBody();
         assertTrue(response.getStatusCode().equals(HttpStatus.OK));
         assertNotNull(responseBody);

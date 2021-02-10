@@ -5,6 +5,10 @@ import com.example.demo.model.persistence.Item;
 import com.example.demo.model.persistence.User;
 import com.example.demo.model.persistence.UserOrder;
 import com.example.demo.model.requests.CreateUserRequest;
+import com.example.demo.model.requests.ModifyCartRequest;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +24,29 @@ public class TestUtils {
         user.setUsername("oneUserName");
         user.setPassword("oneUserPassword");
         return user;
+    }
+
+    /**
+     * Helper method of UserController
+     * */
+    public static CreateUserRequest createOneInvalidUserRequest(){
+        String username = "user1";
+        String password = "hi";
+        CreateUserRequest request = new CreateUserRequest();
+        request.setUsername(username);
+        request.setPassword(password);
+        request.setPasswordConfirm(password);
+        return request;
+    }
+
+    public static CreateUserRequest createOneUserRequest(){
+        String password = "helloWorld";
+        String username = "username";
+        CreateUserRequest request = new CreateUserRequest();
+        request.setUsername(username);
+        request.setPassword(password);
+        request.setPasswordConfirm(password);
+        return request;
     }
 
     /**

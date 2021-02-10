@@ -34,38 +34,30 @@ public class UserControllerTest {
     @Mock
     BCryptPasswordEncoder passwordEncoder;
 
-    @Mock
-    CreateUserRequest createUserRequest;
 
     @Test
     public void createUserWithInvalidPassword(){
         // mock
-        String password = "hi";
-        when(createUserRequest.getPassword()).thenReturn(password);
-        when(createUserRequest.getUsername()).thenReturn("username");
-
+        CreateUserRequest createUserRequest = TestUtils.createOneInvalidUserRequest();
         ResponseEntity<User> response = userController.createUser(createUserRequest);
         response.getStatusCode().equals(HttpStatus.BAD_REQUEST);
     }
 
     @Test
     public void createUser(){
-        // mock
-        String password = "helloWorld";
-        String username = "username";
-        String encodedPassword = "thisIsEncoded";
-        when(createUserRequest.getPassword()).thenReturn(password);
-        when(createUserRequest.getPasswordConfirm()).thenReturn(password);
-        when(createUserRequest.getUsername()).thenReturn(username);
-        when(passwordEncoder.encode(password)).thenReturn(encodedPassword);
+        CreateUserRequest request = TestUtils.createOneUserRequest();
+        String username = request.getUsername();
+        String password = request.getPassword();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = encoder.encode(password);
 
-        ResponseEntity<User> response = userController.createUser(createUserRequest);
+        ResponseEntity<User> response = userController.createUser(request);
 
         // verify response
         assertEquals(response.getStatusCode(), HttpStatus.OK);
         User user = response.getBody();
         assertEquals(username, user.getUsername());
-        assertEquals(encodedPassword, user.getPassword());
+
         assertNotNull(user.getCart());
         assertNull(user.getCart().getItems());
         assertEquals(user, user.getCart().getUser());
